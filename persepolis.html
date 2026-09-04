@@ -1,466 +1,1269 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>پرسپولیس | اخبار فوتبال</title>
+  <title>خبر فوری 24 | آخرین اخبار ایران و ورزش</title>
+  <meta name="description" content="آخرین اخبار ایران، ورزش، فوتبال و پرسپولیس">
 
-<style>
-*{
-    box-sizing:border-box;
-}
-
-body{
-    margin:0;
-    font-family:Tahoma,Arial,sans-serif;
-    background:#f3f4f6;
-    color:#222;
-}
-
-header{
-    background:#111;
-    color:white;
-    padding:18px 6%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    font-size:26px;
-    font-weight:bold;
-}
-
-.logo span{
-    color:#e00000;
-}
-
-nav{
-    background:#d60000;
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    padding:13px 18px;
-    font-weight:bold;
-}
-
-nav a:hover{
-    background:#a90000;
-}
-
-.container{
-    max-width:1100px;
-    margin:30px auto;
-    padding:0 15px;
-}
-
-.team-header{
-    background:linear-gradient(135deg,#8b0000,#e00000);
-    color:white;
-    padding:35px;
-    border-radius:18px;
-    text-align:center;
-    margin-bottom:25px;
-}
-
-.team-header .symbol{
-    font-size:60px;
-}
-
-.team-header h1{
-    margin:10px 0;
-    font-size:38px;
-}
-
-.team-header p{
-    margin:0;
-    font-size:17px;
-}
-
-.title{
-    margin:30px 0 15px;
-    border-right:5px solid #d00000;
-    padding-right:12px;
-}
-
-.news-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-
-.news{
-    background:white;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 3px 12px #0002;
-}
-
-.news-image{
-    height:160px;
-    background:linear-gradient(135deg,#222,#d00000);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:white;
-    font-size:50px;
-}
-
-.news-content{
-    padding:18px;
-}
-
-.news h3{
-    margin-top:0;
-    line-height:1.7;
-}
-
-.news p{
-    color:#666;
-    line-height:1.8;
-}
-
-.info{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 3px 12px #0001;
-}
-
-table{
-    width:100%;
-    border-collapse:collapse;
-    background:white;
-    margin-top:15px;
-}
-
-th,td{
-    padding:14px;
-    border-bottom:1px solid #ddd;
-    text-align:center;
-}
-
-th{
-    background:#111;
-    color:white;
-}
-
-.back{
-    display:inline-block;
-    margin-top:20px;
-    background:#111;
-    color:white;
-    padding:11px 18px;
-    border-radius:9px;
-    text-decoration:none;
-}
-
-footer{
-    margin-top:50px;
-    background:#111;
-    color:#ddd;
-    text-align:center;
-    padding:25px;
-    line-height:2;
-}
-
-@media(max-width:750px){
-    header{
-        flex-direction:column;
-        gap:10px;
-        text-align:center;
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .news-grid{
-        grid-template-columns:1fr;
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background: #f3f4f6;
+      color: #222;
+      line-height: 1.8;
     }
 
-    .team-header h1{
-        font-size:30px;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    nav a{
-        padding:10px 11px;
-        font-size:14px;
+    button,
+    input {
+      font-family: inherit;
     }
-}
-</style>
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #b00020, #750014);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 15px rgba(0,0,0,.2);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: #ffd700;
+    }
+
+    nav {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    nav a {
+      padding: 8px 13px;
+      border-radius: 8px;
+      transition: .2s;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,.15);
+    }
+
+    .menu-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.4);
+      color: white;
+      font-size: 23px;
+      padding: 4px 10px;
+      border-radius: 7px;
+      cursor: pointer;
+    }
+
+    /* SEARCH */
+    .search-area {
+      background: white;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    }
+
+    .search-box {
+      max-width: 800px;
+      margin: auto;
+      display: flex;
+      gap: 8px;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .search-box input:focus {
+      border-color: #b00020;
+    }
+
+    .search-box button {
+      background: #b00020;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 0 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* BREAKING */
+    .breaking {
+      background: #171717;
+      color: white;
+      overflow: hidden;
+    }
+
+    .breaking-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      min-height: 42px;
+    }
+
+    .breaking-title {
+      background: #e0002a;
+      padding: 5px 15px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .breaking-text {
+      padding: 5px 15px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* MAIN */
+    main {
+      max-width: 1200px;
+      margin: 25px auto;
+      padding: 0 15px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 18px;
+      margin-bottom: 25px;
+    }
+
+    .hero-main,
+    .hero-side {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 3px 12px rgba(0,0,0,.08);
+    }
+
+    .hero-main {
+      min-height: 330px;
+      position: relative;
+      background:
+        linear-gradient(to top, rgba(0,0,0,.8), rgba(0,0,0,.05)),
+        linear-gradient(135deg, #555, #b00020);
+      color: white;
+      display: flex;
+      align-items: flex-end;
+      padding: 28px;
+    }
+
+    .hero-main h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .hero-main p {
+      opacity: .9;
+    }
+
+    .hero-side {
+      padding: 20px;
+    }
+
+    .hero-side h2 {
+      color: #b00020;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
+
+    .mini-news {
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+    }
+
+    .mini-news:last-child {
+      border-bottom: 0;
+    }
+
+    .mini-news:hover {
+      color: #b00020;
+    }
+
+    /* SECTION */
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 25px 0 15px;
+    }
+
+    .section-title h2 {
+      border-right: 5px solid #b00020;
+      padding-right: 10px;
+    }
+
+    .section-title a {
+      color: #b00020;
+      font-size: 14px;
+    }
+
+    /* NEWS GRID */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .news-card {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 3px 12px rgba(0,0,0,.07);
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .news-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 7px 20px rgba(0,0,0,.12);
+    }
+
+    .news-image {
+      height: 160px;
+      background: linear-gradient(135deg, #ddd, #aaa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 45px;
+    }
+
+    .news-content {
+      padding: 15px;
+    }
+
+    .tag {
+      display: inline-block;
+      color: white;
+      background: #b00020;
+      padding: 2px 8px;
+      border-radius: 5px;
+      font-size: 11px;
+      margin-bottom: 7px;
+    }
+
+    .news-content h3 {
+      font-size: 17px;
+      margin-bottom: 7px;
+    }
+
+    .news-content p {
+      color: #777;
+      font-size: 13px;
+    }
+
+    .date {
+      display: block;
+      color: #999;
+      font-size: 11px;
+      margin-top: 8px;
+    }
+
+    /* TEAMS */
+    .teams {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .team-card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.07);
+      text-align: center;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .team-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .team-logo {
+      width: 90px;
+      height: 90px;
+      margin: auto;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 25px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .persepolis {
+      background: linear-gradient(135deg, #c9002b, #760018);
+    }
+
+    .esteghlal {
+      background: linear-gradient(135deg, #1677b7, #00395f);
+    }
+
+    /* TABLE */
+    .table-box {
+      background: white;
+      border-radius: 14px;
+      overflow: auto;
+      box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 550px;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background: #b00020;
+      color: white;
+    }
+
+    tr:hover td {
+      background: #fafafa;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 40px;
+      background: #171717;
+      color: #ddd;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 35px 20px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 30px;
+    }
+
+    footer h3 {
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    footer a {
+      display: block;
+      color: #bbb;
+      margin: 5px 0;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .copyright {
+      text-align: center;
+      padding: 15px;
+      background: #0d0d0d;
+      font-size: 13px;
+    }
+
+    /* PAGE */
+    .page {
+      display: none;
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .page h1 {
+      color: #b00020;
+      margin-bottom: 15px;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 15px;
+      background: #b00020;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .article {
+      line-height: 2;
+      font-size: 16px;
+    }
+
+    .article-info {
+      color: #888;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .search-result {
+      margin-top: 20px;
+    }
+
+    .no-result {
+      padding: 20px;
+      text-align: center;
+      color: #888;
+    }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+      .header-inner {
+        padding: 12px 15px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        background: #750014;
+        padding: 10px;
+        flex-direction: column;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav a {
+        width: 100%;
+        text-align: center;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-main {
+        min-height: 280px;
+      }
+
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .teams {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .hero-main h1 {
+        font-size: 21px;
+      }
+
+      .search-box button {
+        padding: 0 13px;
+      }
+
+      main {
+        margin-top: 15px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
+  <div class="header-inner">
 
-    <a href="index.html" style="text-decoration:none;color:white;">
-        <div class="logo">
-            ⚽ <span>اخبار</span> فوتبال
-        </div>
+    <a href="#" class="logo" onclick="showHome()">
+      خبر فوری <span>24</span>
     </a>
 
-    <div>
-        آخرین اخبار فوتبال ایران و جهان
-    </div>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
+    <nav id="nav">
+      <a href="#" onclick="showHome()">خانه</a>
+      <a href="#" onclick="showSection('iran')">ایران</a>
+      <a href="#" onclick="showSection('sports')">ورزش</a>
+      <a href="#" onclick="showSection('persepolis')">پرسپولیس</a>
+      <a href="#" onclick="showSection('esteghlal')">استقلال</a>
+      <a href="#" onclick="showAbout()">درباره ما</a>
+    </nav>
+
+  </div>
 </header>
 
-
-<nav>
-
-    <a href="index.html">خانه</a>
-
-    <a href="latest.html">آخرین اخبار</a>
-
-    <a href="iran.html">ایران</a>
-
-    <a href="persepolis.html">پرسپولیس</a>
-
-    <a href="esteghlal.html">استقلال</a>
-
-    <a href="world.html">جهان</a>
-
-    <a href="videos.html">ویدیوها</a>
-
-</nav>
-
-
-<main class="container">
-
-
-<section class="team-header">
-
-    <div class="symbol">🔴</div>
-
-    <h1>پرسپولیس</h1>
-
-    <p>
-        بخش اختصاصی اخبار، نتایج و مطالب پرسپولیس
-    </p>
-
-</section>
-
-
-
-<h2 class="title">
-    آخرین اخبار پرسپولیس
-</h2>
-
-
-<section class="news-grid">
-
-
-<article class="news">
-
-    <div class="news-image">
-        🔴
-    </div>
-
-    <div class="news-content">
-
-        <h3>
-            آخرین اخبار پرسپولیس
-        </h3>
-
-        <p>
-            جدیدترین اخبار و اتفاقات مربوط به پرسپولیس را در این بخش دنبال کنید.
-        </p>
-
-    </div>
-
-</article>
-
-
-
-<article class="news">
-
-    <div class="news-image">
-        ⚽
-    </div>
-
-    <div class="news-content">
-
-        <h3>
-            آخرین نتایج پرسپولیس
-        </h3>
-
-        <p>
-            نتایج بازی‌ها و مسابقات پرسپولیس در این قسمت قرار می‌گیرد.
-        </p>
-
-    </div>
-
-</article>
-
-
-
-<article class="news">
-
-    <div class="news-image">
-        🏆
-    </div>
-
-    <div class="news-content">
-
-        <h3>
-            افتخارات پرسپولیس
-        </h3>
-
-        <p>
-            اخبار مربوط به مسابقات و موفقیت‌های تیم پرسپولیس.
-        </p>
-
-    </div>
-
-</article>
-
-
-
-<article class="news">
-
-    <div class="news-image">
-        👕
-    </div>
-
-    <div class="news-content">
-
-        <h3>
-            نقل‌وانتقالات پرسپولیس
-        </h3>
-
-        <p>
-            جدیدترین خبرهای نقل‌وانتقالات تیم در این بخش قرار می‌گیرد.
-        </p>
-
-    </div>
-
-</article>
-
-
-
-<article class="news">
-
-    <div class="news-image">
-        👥
-    </div>
-
-    <div class="news-content">
-
-        <h3>
-            بازیکنان پرسپولیس
-        </h3>
-
-        <p>
-            اخبار بازیکنان، ترکیب تیم و اتفاقات مربوط به بازیکنان.
-        </p>
-
-    </div>
-
-</article>
-
-
-
-<article class="news">
-
-    <div class="news-image">
-        📣
-    </div>
-
-    <div class="news-content">
-
-        <h3>
-            خبر فوری پرسپولیس
-        </h3>
-
-        <p>
-            خبرهای فوری و مهم پرسپولیس در این قسمت منتشر خواهد شد.
-        </p>
-
-    </div>
-
-</article>
-
-
-</section>
-
-
-
-<h2 class="title">
-    نتایج مسابقات
-</h2>
-
-
-<table>
-
-<tr>
-    <th>مسابقه</th>
-    <th>نتیجه</th>
-    <th>وضعیت</th>
-</tr>
-
-<tr>
-    <td>پرسپولیس - حریف</td>
-    <td>—</td>
-    <td>آینده</td>
-</tr>
-
-<tr>
-    <td>پرسپولیس - حریف</td>
-    <td>—</td>
-    <td>آینده</td>
-</tr>
-
-<tr>
-    <td>پرسپولیس - حریف</td>
-    <td>—</td>
-    <td>آینده</td>
-</tr>
-
-</table>
-
-
-
-<h2 class="title">
-    درباره بخش پرسپولیس
-</h2>
-
-
-<div class="info">
-
-<p>
-اینجا صفحه اختصاصی پرسپولیس در سایت «اخبار فوتبال» است.
-</p>
-
-<p>
-در ادامه می‌توانیم این صفحه را به یک بخش کاملاً حرفه‌ای تبدیل کنیم؛
-شامل خبرهای واقعی، عکس، نتایج، جدول لیگ، ترکیب، نقل‌وانتقالات و ویدیو.
-</p>
-
+<!-- SEARCH -->
+<div class="search-area">
+  <div class="search-box">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="جستجو در اخبار..."
+      onkeydown="if(event.key==='Enter') searchNews()"
+    >
+    <button onclick="searchNews()">جستجو</button>
+  </div>
 </div>
 
+<!-- BREAKING -->
+<div class="breaking">
+  <div class="breaking-inner">
+    <div class="breaking-title">🔴 فوری</div>
+    <div class="breaking-text">
+      آخرین اخبار و رویدادهای مهم ایران و جهان را در خبر فوری 24 دنبال کنید
+    </div>
+  </div>
+</div>
 
-<a class="back" href="index.html">
-    ← بازگشت به صفحه اصلی
-</a>
+<main>
 
+  <!-- HOME -->
+  <section id="homePage">
+
+    <div class="hero">
+
+      <div class="hero-main">
+        <div>
+          <span class="tag">خبر ویژه</span>
+          <h1>آخرین اخبار روز ایران و فوتبال</h1>
+          <p>
+            مهم‌ترین اخبار و اتفاقات روز را در سریع‌ترین زمان دنبال کنید.
+          </p>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <h2>🔥 پربازدیدترین‌ها</h2>
+
+        <div class="mini-news" onclick="openArticle('پرسپولیس')">
+          آخرین اخبار پرسپولیس و حواشی سرخ‌ها
+        </div>
+
+        <div class="mini-news" onclick="openArticle('دربی')">
+          گزارش کامل دربی و اتفاقات مهم مسابقه
+        </div>
+
+        <div class="mini-news" onclick="openArticle('فوتبال')">
+          آخرین نقل‌وانتقالات فوتبال ایران
+        </div>
+
+        <div class="mini-news" onclick="openArticle('ورزش')">
+          جدیدترین اخبار ورزشی امروز
+        </div>
+      </div>
+
+    </div>
+
+    <!-- NEWS -->
+    <div class="section-title">
+      <h2>📰 آخرین اخبار</h2>
+      <a href="#" onclick="showSection('iran')">مشاهده همه ←</a>
+    </div>
+
+    <div class="news-grid">
+
+      <article class="news-card" data-category="iran">
+        <div class="news-image">🇮🇷</div>
+        <div class="news-content">
+          <span class="tag">ایران</span>
+          <h3>مهم‌ترین اخبار روز ایران</h3>
+          <p>آخرین رویدادها و خبرهای مهم کشور.</p>
+          <span class="date">امروز</span>
+        </div>
+      </article>
+
+      <article class="news-card" data-category="persepolis"
+               onclick="openArticle('پرسپولیس')">
+        <div class="news-image">🔴</div>
+        <div class="news-content">
+          <span class="tag">پرسپولیس</span>
+          <h3>آخرین وضعیت پرسپولیس</h3>
+          <p>اخبار جدید سرخپوشان پایتخت.</p>
+          <span class="date">امروز</span>
+        </div>
+      </article>
+
+      <article class="news-card" data-category="esteghlal"
+               onclick="openArticle('استقلال')">
+        <div class="news-image">🔵</div>
+        <div class="news-content">
+          <span class="tag">استقلال</span>
+          <h3>آخرین اخبار استقلال</h3>
+          <p>جدیدترین اخبار آبی‌پوشان.</p>
+          <span class="date">امروز</span>
+        </div>
+      </article>
+
+      <article class="news-card" data-category="sports">
+        <div class="news-image">⚽</div>
+        <div class="news-content">
+          <span class="tag">ورزش</span>
+          <h3>جدیدترین اخبار فوتبال</h3>
+          <p>نتایج، حواشی و اتفاقات فوتبال.</p>
+          <span class="date">امروز</span>
+        </div>
+      </article>
+
+      <article class="news-card" data-category="sports">
+        <div class="news-image">🏆</div>
+        <div class="news-content">
+          <span class="tag">ورزش</span>
+          <h3>رقابت‌های مهم ورزشی</h3>
+          <p>مهم‌ترین اتفاقات دنیای ورزش.</p>
+          <span class="date">امروز</span>
+        </div>
+      </article>
+
+      <article class="news-card" data-category="iran">
+        <div class="news-image">🌎</div>
+        <div class="news-content">
+          <span class="tag">جهان</span>
+          <h3>مهم‌ترین اخبار جهان</h3>
+          <p>مروری بر رویدادهای مهم بین‌المللی.</p>
+          <span class="date">امروز</span>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- TEAMS -->
+    <div class="section-title">
+      <h2>⚽ تیم‌های محبوب</h2>
+    </div>
+
+    <div class="teams">
+
+      <div class="team-card" onclick="showSection('persepolis')">
+        <div class="team-logo persepolis">پرسپولیس</div>
+        <h2>پرسپولیس</h2>
+        <p>ورود به صفحه اختصاصی پرسپولیس ←</p>
+      </div>
+
+      <div class="team-card" onclick="showSection('esteghlal')">
+        <div class="team-logo esteghlal">استقلال</div>
+        <h2>استقلال</h2>
+        <p>ورود به صفحه اختصاصی استقلال ←</p>
+      </div>
+
+    </div>
+
+    <!-- TABLE -->
+    <div class="section-title">
+      <h2>🏆 جدول لیگ</h2>
+    </div>
+
+    <div class="table-box">
+      <table>
+        <thead>
+          <tr>
+            <th>رتبه</th>
+            <th>تیم</th>
+            <th>بازی</th>
+            <th>امتیاز</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>پرسپولیس</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+
+          <tr>
+            <td>2</td>
+            <td>استقلال</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+
+          <tr>
+            <td>3</td>
+            <td>سپاهان</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+
+          <tr>
+            <td>4</td>
+            <td>تراکتور</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </section>
+
+
+  <!-- IRAN PAGE -->
+  <section id="iranPage" class="page">
+
+    <h1>🇮🇷 اخبار ایران</h1>
+
+    <div class="news-grid">
+
+      <article class="news-card">
+        <div class="news-image">🇮🇷</div>
+        <div class="news-content">
+          <span class="tag">ایران</span>
+          <h3>آخرین اخبار ایران</h3>
+          <p>مهم‌ترین خبرهای روز کشور.</p>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-image">📰</div>
+        <div class="news-content">
+          <span class="tag">خبر</span>
+          <h3>اخبار مهم روز</h3>
+          <p>رویدادهای مهم ایران را دنبال کنید.</p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="back-btn" onclick="showHome()">← بازگشت به خانه</div>
+
+  </section>
+
+
+  <!-- SPORTS PAGE -->
+  <section id="sportsPage" class="page">
+
+    <h1>⚽ اخبار ورزش</h1>
+
+    <div class="news-grid">
+
+      <article class="news-card">
+        <div class="news-image">⚽</div>
+        <div class="news-content">
+          <span class="tag">فوتبال</span>
+          <h3>جدیدترین اخبار فوتبال</h3>
+          <p>آخرین اتفاقات فوتبال ایران و جهان.</p>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-image">🏆</div>
+        <div class="news-content">
+          <span class="tag">ورزش</span>
+          <h3>نتایج و اخبار ورزشی</h3>
+          <p>مهم‌ترین نتایج و اتفاقات ورزشی.</p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="back-btn" onclick="showHome()">← بازگشت به خانه</div>
+
+  </section>
+
+
+  <!-- PERSEPOLIS PAGE -->
+  <section id="persepolisPage" class="page">
+
+    <h1>🔴 صفحه اختصاصی پرسپولیس</h1>
+
+    <div class="article">
+
+      <div class="article-info">
+        آخرین اخبار و مطالب اختصاصی پرسپولیس
+      </div>
+
+      <h2>پرسپولیس</h2>
+
+      <p>
+        در این بخش می‌توانید اخبار، نتایج مسابقات، نقل‌وانتقالات،
+        ترکیب تیم و حواشی مربوط به پرسپولیس را مشاهده کنید.
+      </p>
+
+      <br>
+
+      <div class="news-grid">
+
+        <article class="news-card">
+          <div class="news-image">🔴</div>
+          <div class="news-content">
+            <span class="tag">پرسپولیس</span>
+            <h3>آخرین وضعیت سرخپوشان</h3>
+            <p>جدیدترین اخبار تیم پرسپولیس.</p>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="news-image">⚽</div>
+          <div class="news-content">
+            <span class="tag">پرسپولیس</span>
+            <h3>اخبار نقل‌وانتقالات</h3>
+            <p>آخرین اخبار مربوط به نقل‌وانتقالات.</p>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+
+    <div class="back-btn" onclick="showHome()">← بازگشت به خانه</div>
+
+  </section>
+
+
+  <!-- ESTEghLAL PAGE -->
+  <section id="esteghlalPage" class="page">
+
+    <h1>🔵 صفحه اختصاصی استقلال</h1>
+
+    <div class="article">
+
+      <div class="article-info">
+        آخرین اخبار و مطالب اختصاصی استقلال
+      </div>
+
+      <h2>استقلال</h2>
+
+      <p>
+        در این بخش می‌توانید اخبار، نتایج مسابقات،
+        نقل‌وانتقالات و حواشی استقلال را مشاهده کنید.
+      </p>
+
+      <br>
+
+      <div class="news-grid">
+
+        <article class="news-card">
+          <div class="news-image">🔵</div>
+          <div class="news-content">
+            <span class="tag">استقلال</span>
+            <h3>آخرین وضعیت استقلال</h3>
+            <p>جدیدترین اخبار آبی‌پوشان.</p>
+          </div>
+        </article>
+
+        <article class="news-card">
+          <div class="news-image">⚽</div>
+          <div class="news-content">
+            <span class="tag">استقلال</span>
+            <h3>اخبار نقل‌وانتقالات</h3>
+            <p>آخرین اخبار نقل‌وانتقالات استقلال.</p>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+
+    <div class="back-btn" onclick="showHome()">← بازگشت به خانه</div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="aboutPage" class="page">
+
+    <h1>ℹ️ درباره خبر فوری 24</h1>
+
+    <div class="article">
+
+      <p>
+        به وب‌سایت «خبر فوری 24» خوش آمدید.
+      </p>
+
+      <p>
+        هدف ما ارائه اخبار مهم ایران، ورزش و فوتبال
+        در قالبی ساده و سریع است.
+      </p>
+
+      <br>
+
+      <h2>📱 خبر فوری 24</h2>
+
+      <p>
+        این وب‌سایت برای دسترسی راحت‌تر کاربران به اخبار
+        طراحی شده است.
+      </p>
+
+    </div>
+
+    <div class="back-btn" onclick="showHome()">← بازگشت به خانه</div>
+
+  </section>
+
+
+  <!-- ARTICLE -->
+  <section id="articlePage" class="page">
+
+    <h1 id="articleTitle">خبر</h1>
+
+    <div class="article-info">
+      منتشر شده در خبر فوری 24
+    </div>
+
+    <div class="article" id="articleText"></div>
+
+    <div class="back-btn" onclick="showHome()">← بازگشت به خانه</div>
+
+  </section>
+
+
+  <!-- SEARCH RESULTS -->
+  <section id="searchPage" class="page">
+
+    <h1>🔎 نتایج جستجو</h1>
+
+    <div id="searchResults" class="search-result"></div>
+
+    <div class="back-btn" onclick="showHome()">← بازگشت به خانه</div>
+
+  </section>
 
 </main>
 
 
+<!-- FOOTER -->
 <footer>
 
-© 2026 اخبار فوتبال
+  <div class="footer-inner">
 
-<br>
+    <div>
+      <h3>خبر فوری 24</h3>
+      <p>
+        مرجع اخبار ایران، ورزش و فوتبال.
+      </p>
+    </div>
 
-تمامی اخبار و مطالب سایت در این بخش مدیریت می‌شوند.
+    <div>
+      <h3>دسترسی سریع</h3>
+      <a href="#" onclick="showHome()">خانه</a>
+      <a href="#" onclick="showSection('iran')">اخبار ایران</a>
+      <a href="#" onclick="showSection('sports')">ورزش</a>
+    </div>
+
+    <div>
+      <h3>فوتبال</h3>
+      <a href="#" onclick="showSection('persepolis')">پرسپولیس</a>
+      <a href="#" onclick="showSection('esteghlal')">استقلال</a>
+    </div>
+
+  </div>
+
+  <div class="copyright">
+    © 2026 خبر فوری 24 - تمامی حقوق محفوظ است.
+  </div>
 
 </footer>
 
 
+<script>
+
+  /* همه صفحات */
+  const pages = [
+    "homePage",
+    "iranPage",
+    "sportsPage",
+    "persepolisPage",
+    "esteghlalPage",
+    "aboutPage",
+    "articlePage",
+    "searchPage"
+  ];
+
+
+  /* نمایش صفحه */
+  function showPage(pageId) {
+
+    pages.forEach(function(id) {
+
+      const page = document.getElementById(id);
+
+      if (page) {
+        page.classList.remove("active");
+      }
+
+    });
+
+    const target = document.getElementById(pageId);
+
+    if (target) {
+      target.classList.add("active");
+    }
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+    document.getElementById("nav").classList.remove("show");
+  }
+
+
+  /* خانه */
+  function showHome() {
+
+    showPage("homePage");
+
+  }
+
+
+  /* بخش‌ها */
+  function showSection(section) {
+
+    if (section === "iran") {
+      showPage("iranPage");
+    }
+
+    else if (section === "sports") {
+      showPage("sportsPage");
+    }
+
+    else if (section === "persepolis") {
+      showPage("persepolisPage");
+    }
+
+    else if (section === "esteghlal") {
+      showPage("esteghlalPage");
+    }
+
+  }
+
+
+  /* درباره ما */
+  function showAbout() {
+
+    showPage("aboutPage");
+
+  }
+
+
+  /* مقاله */
+  function openArticle(type) {
+
+    const title = document.getElementById("articleTitle");
+    const text = document.getElementById("articleText");
+
+    if (type === "پرسپولیس") {
+
+      title.innerText = "🔴 آخرین اخبار پرسپولیس";
+
+      text.innerHTML = `
+        <p>
+          در این صفحه آخرین اخبار و اتفاقات مربوط به
+          پرسپولیس قرار می‌گیرد.
+        </p>
+
+        <p>
+          اخبار تیم، نتایج مسابقات، نقل‌وانتقالات و
+          حواشی سرخپوشان در این بخش منتشر خواهد شد.
+        </p>
+      `;
+
+    }
+
+    else if (type === "استقلال") {
+
+      title.innerText = "🔵 آخرین اخبار استقلال";
+
+      text.innerHTML = `
+        <p>
+          جدیدترین اخبار استقلال در این صفحه قرار می‌گیرد.
+        </p>
+
+        <p>
+          اخبار مسابقات، نقل‌وانتقالات و اتفاقات مربوط
+          به آبی‌پوشان در این بخش منتشر خواهد شد.
+        </p>
+      `;
+
+    }
+
+    else if (type === "دربی") {
+
+      title.innerText = "⚽ گزارش دربی";
+
+      text.innerHTML = `
+        <p>
+          اخبار و گزارش‌های مربوط به شهرآورد بزرگ پایتخت
+          در این بخش قرار می‌گیرد.
+        </p>
+      `;
+
+    }
+
+    else {
+
+      title.innerText = "📰 خبر جدید";
+
+      text.innerHTML = `
+        <p>
+          متن کامل این خبر در این بخش نمایش داده می‌شود.
+        </p>
+      `;
+
+    }
+
+    showPage("articlePage");
+
+  }
+
+
+  /* جستجو */
+  function searchNews() {
+
+    const input = document
+      .getElementById("searchInput")
+      .value
+      .trim()
+      .toLowerCase();
+
+    const results = document.getElementById("searchResults");
+
+    if (!input) {
+
+      results.innerHTML = `
+        <div class="no-result">
+          لطفاً عبارت موردنظر را وارد کنید.
+        </div>
+      `;
+
+      showPage("searchPage");
+
+      return;
+    }
+
+
+    const cards = document.querySelectorAll(".news-card");
+
+    let found = 0;
+
+    let html = "";
+
+
+    cards.forEach(function(card) {
+
+      const text = card.innerText.toLowerCase();
+
+      if (text.includes(input)) {
+
+        found++;
+
+        html += `
+          <div style="
+            padding:15px;
+            margin-bottom:10px;
+            border:1px solid #eee;
+            border-radius:10px;
+          ">
+            ${card.innerText}
+          </div>
+        `;
+
+      }
+
+    });
+
+
+    if (found === 0) {
+
+      html = `
+        <div class="no-result">
+          نتیجه‌ای برای «${input}» پیدا نشد.
+        </div>
+      `;
+
+    }
+
+
+    results.innerHTML = html;
+
+    showPage("searchPage");
+
+  }
+
+
+  /* منوی موبایل */
+  function toggleMenu() {
+
+    document
+      .getElementById("nav")
+      .classList
+      .toggle("show");
+
+  }
+
+
+  /* شروع سایت */
+  showHome();
+
+</script>
+
 </body>
-      </html>
+              </html>
