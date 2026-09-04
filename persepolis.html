@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>پرسپولیس | اخبار فوتبال</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Tahoma,Arial,sans-serif;
+    background:#f3f4f6;
+    color:#222;
+}
+
+header{
+    background:#111;
+    color:white;
+    padding:18px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:26px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#e00000;
+}
+
+nav{
+    background:#d60000;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:13px 18px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    background:#a90000;
+}
+
+.container{
+    max-width:1100px;
+    margin:30px auto;
+    padding:0 15px;
+}
+
+.team-header{
+    background:linear-gradient(135deg,#8b0000,#e00000);
+    color:white;
+    padding:35px;
+    border-radius:18px;
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.team-header .symbol{
+    font-size:60px;
+}
+
+.team-header h1{
+    margin:10px 0;
+    font-size:38px;
+}
+
+.team-header p{
+    margin:0;
+    font-size:17px;
+}
+
+.title{
+    margin:30px 0 15px;
+    border-right:5px solid #d00000;
+    padding-right:12px;
+}
+
+.news-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.news{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 3px 12px #0002;
+}
+
+.news-image{
+    height:160px;
+    background:linear-gradient(135deg,#222,#d00000);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:50px;
+}
+
+.news-content{
+    padding:18px;
+}
+
+.news h3{
+    margin-top:0;
+    line-height:1.7;
+}
+
+.news p{
+    color:#666;
+    line-height:1.8;
+}
+
+.info{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 3px 12px #0001;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    margin-top:15px;
+}
+
+th,td{
+    padding:14px;
+    border-bottom:1px solid #ddd;
+    text-align:center;
+}
+
+th{
+    background:#111;
+    color:white;
+}
+
+.back{
+    display:inline-block;
+    margin-top:20px;
+    background:#111;
+    color:white;
+    padding:11px 18px;
+    border-radius:9px;
+    text-decoration:none;
+}
+
+footer{
+    margin-top:50px;
+    background:#111;
+    color:#ddd;
+    text-align:center;
+    padding:25px;
+    line-height:2;
+}
+
+@media(max-width:750px){
+    header{
+        flex-direction:column;
+        gap:10px;
+        text-align:center;
+    }
+
+    .news-grid{
+        grid-template-columns:1fr;
+    }
+
+    .team-header h1{
+        font-size:30px;
+    }
+
+    nav a{
+        padding:10px 11px;
+        font-size:14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <a href="index.html" style="text-decoration:none;color:white;">
+        <div class="logo">
+            ⚽ <span>اخبار</span> فوتبال
+        </div>
+    </a>
+
+    <div>
+        آخرین اخبار فوتبال ایران و جهان
+    </div>
+
+</header>
+
+
+<nav>
+
+    <a href="index.html">خانه</a>
+
+    <a href="latest.html">آخرین اخبار</a>
+
+    <a href="iran.html">ایران</a>
+
+    <a href="persepolis.html">پرسپولیس</a>
+
+    <a href="esteghlal.html">استقلال</a>
+
+    <a href="world.html">جهان</a>
+
+    <a href="videos.html">ویدیوها</a>
+
+</nav>
+
+
+<main class="container">
+
+
+<section class="team-header">
+
+    <div class="symbol">🔴</div>
+
+    <h1>پرسپولیس</h1>
+
+    <p>
+        بخش اختصاصی اخبار، نتایج و مطالب پرسپولیس
+    </p>
+
+</section>
+
+
+
+<h2 class="title">
+    آخرین اخبار پرسپولیس
+</h2>
+
+
+<section class="news-grid">
+
+
+<article class="news">
+
+    <div class="news-image">
+        🔴
+    </div>
+
+    <div class="news-content">
+
+        <h3>
+            آخرین اخبار پرسپولیس
+        </h3>
+
+        <p>
+            جدیدترین اخبار و اتفاقات مربوط به پرسپولیس را در این بخش دنبال کنید.
+        </p>
+
+    </div>
+
+</article>
+
+
+
+<article class="news">
+
+    <div class="news-image">
+        ⚽
+    </div>
+
+    <div class="news-content">
+
+        <h3>
+            آخرین نتایج پرسپولیس
+        </h3>
+
+        <p>
+            نتایج بازی‌ها و مسابقات پرسپولیس در این قسمت قرار می‌گیرد.
+        </p>
+
+    </div>
+
+</article>
+
+
+
+<article class="news">
+
+    <div class="news-image">
+        🏆
+    </div>
+
+    <div class="news-content">
+
+        <h3>
+            افتخارات پرسپولیس
+        </h3>
+
+        <p>
+            اخبار مربوط به مسابقات و موفقیت‌های تیم پرسپولیس.
+        </p>
+
+    </div>
+
+</article>
+
+
+
+<article class="news">
+
+    <div class="news-image">
+        👕
+    </div>
+
+    <div class="news-content">
+
+        <h3>
+            نقل‌وانتقالات پرسپولیس
+        </h3>
+
+        <p>
+            جدیدترین خبرهای نقل‌وانتقالات تیم در این بخش قرار می‌گیرد.
+        </p>
+
+    </div>
+
+</article>
+
+
+
+<article class="news">
+
+    <div class="news-image">
+        👥
+    </div>
+
+    <div class="news-content">
+
+        <h3>
+            بازیکنان پرسپولیس
+        </h3>
+
+        <p>
+            اخبار بازیکنان، ترکیب تیم و اتفاقات مربوط به بازیکنان.
+        </p>
+
+    </div>
+
+</article>
+
+
+
+<article class="news">
+
+    <div class="news-image">
+        📣
+    </div>
+
+    <div class="news-content">
+
+        <h3>
+            خبر فوری پرسپولیس
+        </h3>
+
+        <p>
+            خبرهای فوری و مهم پرسپولیس در این قسمت منتشر خواهد شد.
+        </p>
+
+    </div>
+
+</article>
+
+
+</section>
+
+
+
+<h2 class="title">
+    نتایج مسابقات
+</h2>
+
+
+<table>
+
+<tr>
+    <th>مسابقه</th>
+    <th>نتیجه</th>
+    <th>وضعیت</th>
+</tr>
+
+<tr>
+    <td>پرسپولیس - حریف</td>
+    <td>—</td>
+    <td>آینده</td>
+</tr>
+
+<tr>
+    <td>پرسپولیس - حریف</td>
+    <td>—</td>
+    <td>آینده</td>
+</tr>
+
+<tr>
+    <td>پرسپولیس - حریف</td>
+    <td>—</td>
+    <td>آینده</td>
+</tr>
+
+</table>
+
+
+
+<h2 class="title">
+    درباره بخش پرسپولیس
+</h2>
+
+
+<div class="info">
+
+<p>
+اینجا صفحه اختصاصی پرسپولیس در سایت «اخبار فوتبال» است.
+</p>
+
+<p>
+در ادامه می‌توانیم این صفحه را به یک بخش کاملاً حرفه‌ای تبدیل کنیم؛
+شامل خبرهای واقعی، عکس، نتایج، جدول لیگ، ترکیب، نقل‌وانتقالات و ویدیو.
+</p>
+
+</div>
+
+
+<a class="back" href="index.html">
+    ← بازگشت به صفحه اصلی
+</a>
+
+
+</main>
+
+
+<footer>
+
+© 2026 اخبار فوتبال
+
+<br>
+
+تمامی اخبار و مطالب سایت در این بخش مدیریت می‌شوند.
+
+</footer>
+
+
+</body>
+      </html>
